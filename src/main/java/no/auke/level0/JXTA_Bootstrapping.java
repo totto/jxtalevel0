@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.impl.peergroup.GenericPeerGroup;
 import net.jxta.peergroup.PeerGroup;
+import net.jxta.peergroup.WorldPeerGroupFactory;
 import net.jxta.platform.JxtaLoader;
 import net.jxta.platform.Module;
 import net.jxta.platform.NetworkManager;
@@ -30,7 +31,8 @@ public class JXTA_Bootstrapping {
             Logger.getLogger("net.jxta").setLevel(Level.SEVERE);
 
             // Retrieving the JXTA loader
-            JxtaLoader TheLoader = GenericPeerGroup.getJxtaLoader();
+            JxtaLoader TheLoader = new WorldPeerGroupFactory().getWorldPeerGroup().getLoader();
+            // GenericPeerGroup.getJxtaLoader();
 
             System.out.println("\nBefore starting the JXTA network:");
 
